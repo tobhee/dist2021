@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dslab.mailbox.MailboxServerProtocolTest" tests="4" skipped="0" failures="4" errors="0" timestamp="2021-10-29T15:31:26" hostname="TOBISPC" time="120.04">
+  <properties/>
+  <testcase name="acceptDmtpMessage_listDmapMessage" classname="dslab.mailbox.MailboxServerProtocolTest" time="30.005">
+    <failure message="org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds" type="org.junit.runners.model.TestTimedOutException">org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds
+	at java.base@11.0.13/java.net.PlainSocketImpl.connect0(Native Method)
+	at java.base@11.0.13/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:101)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base@11.0.13/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:608)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:557)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:453)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:230)
+	at app//dslab.Sockets.waitForSocket(Sockets.java:33)
+	at app//dslab.mailbox.MailboxServerProtocolTest.setUp(MailboxServerProtocolTest.java:37)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.13/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.13/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at app//org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at app//org.junit.rules.Verifier$1.evaluate(Verifier.java:35)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base@11.0.13/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@11.0.13/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <testcase name="loginAndLogout_withValidLogin" classname="dslab.mailbox.MailboxServerProtocolTest" time="30.012">
+    <failure message="org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds" type="org.junit.runners.model.TestTimedOutException">org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds
+	at java.base@11.0.13/java.net.PlainSocketImpl.connect0(Native Method)
+	at java.base@11.0.13/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:101)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base@11.0.13/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:608)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:557)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:453)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:230)
+	at app//dslab.Sockets.waitForSocket(Sockets.java:33)
+	at app//dslab.mailbox.MailboxServerProtocolTest.setUp(MailboxServerProtocolTest.java:37)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.13/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.13/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at app//org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at app//org.junit.rules.Verifier$1.evaluate(Verifier.java:35)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base@11.0.13/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@11.0.13/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <testcase name="dmtpMessage_withUnknownRecipient_returnsError" classname="dslab.mailbox.MailboxServerProtocolTest" time="30.007">
+    <failure message="org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds" type="org.junit.runners.model.TestTimedOutException">org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds
+	at java.base@11.0.13/java.net.PlainSocketImpl.connect0(Native Method)
+	at java.base@11.0.13/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:101)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base@11.0.13/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:608)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:557)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:453)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:230)
+	at app//dslab.Sockets.waitForSocket(Sockets.java:33)
+	at app//dslab.mailbox.MailboxServerProtocolTest.setUp(MailboxServerProtocolTest.java:37)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.13/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.13/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at app//org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at app//org.junit.rules.Verifier$1.evaluate(Verifier.java:35)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base@11.0.13/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@11.0.13/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <testcase name="login_withInvalidLogin_returnsError" classname="dslab.mailbox.MailboxServerProtocolTest" time="30.016">
+    <failure message="org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds" type="org.junit.runners.model.TestTimedOutException">org.junit.runners.model.TestTimedOutException: test timed out after 30 seconds
+	at java.base@11.0.13/java.net.PlainSocketImpl.connect0(Native Method)
+	at java.base@11.0.13/java.net.PlainSocketImpl.socketConnect(PlainSocketImpl.java:101)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base@11.0.13/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base@11.0.13/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:608)
+	at java.base@11.0.13/java.net.Socket.connect(Socket.java:557)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:453)
+	at java.base@11.0.13/java.net.Socket.&lt;init&gt;(Socket.java:230)
+	at app//dslab.Sockets.waitForSocket(Sockets.java:33)
+	at app//dslab.mailbox.MailboxServerProtocolTest.setUp(MailboxServerProtocolTest.java:37)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.13/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.13/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.13/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at app//org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at app//org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at app//org.junit.rules.Verifier$1.evaluate(Verifier.java:35)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base@11.0.13/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@11.0.13/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Okt. 29, 2021 5:31:26 NACHM. dslab.mailbox.MailboxServerProtocolTest setUp
+INFO: Waiting for server sockets to appear
+Okt. 29, 2021 5:31:56 NACHM. dslab.mailbox.MailboxServerProtocolTest setUp
+INFO: Waiting for server sockets to appear
+Okt. 29, 2021 5:32:26 NACHM. dslab.mailbox.MailboxServerProtocolTest setUp
+INFO: Waiting for server sockets to appear
+Okt. 29, 2021 5:32:56 NACHM. dslab.mailbox.MailboxServerProtocolTest setUp
+INFO: Waiting for server sockets to appear
+]]></system-err>
+</testsuite>

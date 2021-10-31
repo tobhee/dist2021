@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dslab.monitoring.MonitoringServerProtocolTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2021-10-29T15:33:56" hostname="TOBISPC" time="22.081">
+  <properties/>
+  <testcase name="servers_returnsCorrectStatistics" classname="dslab.monitoring.MonitoringServerProtocolTest" time="11.05">
+    <failure message="java.lang.AssertionError: &#10;Expected: a string containing &quot;127.0.0.1:42 2&quot;&#10;     but: was &quot;&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: a string containing &quot;127.0.0.1:42 2&quot;
+     but: was &quot;&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.junit.Assert.assertThat(Assert.java:956)
+	at org.junit.Assert.assertThat(Assert.java:923)
+	at dslab.monitoring.MonitoringServerProtocolTest.servers_returnsCorrectStatistics(MonitoringServerProtocolTest.java:89)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <testcase name="addresses_returnsCorrectStatistics" classname="dslab.monitoring.MonitoringServerProtocolTest" time="11.031">
+    <failure message="java.lang.AssertionError: &#10;Expected: a string containing &quot;foo@example.com 2&quot;&#10;     but: was &quot;&quot;" type="java.lang.AssertionError">java.lang.AssertionError: 
+Expected: a string containing &quot;foo@example.com 2&quot;
+     but: was &quot;&quot;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+	at org.junit.Assert.assertThat(Assert.java:956)
+	at org.junit.Assert.assertThat(Assert.java:923)
+	at dslab.monitoring.MonitoringServerProtocolTest.addresses_returnsCorrectStatistics(MonitoringServerProtocolTest.java:65)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Okt. 29, 2021 5:33:57 NACHM. dslab.monitoring.MonitoringServerTest runAndShutdownTransferServer_createsAndStopsTcpSocketCorrectly
+INFO: Waiting for DMAP socket to open on port 10363
+Okt. 29, 2021 5:33:59 NACHM. dslab.monitoring.MonitoringServerProtocolTest servers_returnsCorrectStatistics
+INFO: Sending three monitoring packets to monitoring socket
+Okt. 29, 2021 5:34:10 NACHM. dslab.monitoring.MonitoringServerProtocolTest addresses_returnsCorrectStatistics
+INFO: Sending three monitoring packets to monitoring socket
+]]></system-err>
+</testsuite>
