@@ -2,20 +2,18 @@ package dslab.mailbox;
 
 import java.io.*;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.concurrent.ConcurrentHashMap;
 
 import dslab.ComponentFactory;
-import dslab.protocols.DmapProtocol;
+import dslab.monitoring.dmap.MailboxListenerThread;
 import dslab.util.Config;
 
 public class MailboxServer implements IMailboxServer, Runnable {
     private String componentId;
     private Config config;
-    private Socket socket;
     private InputStream in;
     private PrintStream out;
-    private ConcurrentHashMap<Integer, String> messageMap;
+    private ServerSocket serverSocket;
 
     /**
      * Creates a new server instance.
@@ -31,52 +29,40 @@ public class MailboxServer implements IMailboxServer, Runnable {
         this.config = config;
         this.in = in;
         this.out = out;
-        messageMap = new ConcurrentHashMap<>();
     }
 
     @Override
     public void run() {
-        try(
-                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))
-        ) {
-            String inputLine, outputLine;
-            DmapProtocol dmap = new DmapProtocol();
-            outputLine = dmap.processInput(null, this.config);
-            out.println(outputLine);
-
-            while((inputLine = in.readLine()) != null) {
-                outputLine = dmap.processInput(inputLine, this.config);
-                out.println(outputLine);
-                if(outputLine.equals("ok bye")) break;
-            }
-            socket.close();
+        try {
+            serverSocket = new ServerSocket(config.getInt("dmap.tcp.port"));
+            new MailboxListenerThread(serverSocket, config).start();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new UncheckedIOException("Error while creating server socket", e);
         }
+
+
+        try {
+            Thread.sleep(5000000);
+        } catch (InterruptedException e) {
+            shutdown();
+        }
+        //continue only if listener thread closes (request="quit"); maybe works with interrupt???
+        shutdown();
     }
 
     @Override
     public void shutdown() {
-        // TODO
+        if(serverSocket != null) {
+            try {
+                serverSocket.close();
+            } catch(IOException e) {
+                System.err.println("Error while closing server socket: " + e.getMessage());
+            }
+        }
     }
 
     public static void main(String[] args) throws Exception {
-        String mailboxDomain = args[0];
-        int dmtpPort = Integer.parseInt(args[1]);
-        int dmapPort = Integer.parseInt(args[2]);
-
         IMailboxServer server = ComponentFactory.createMailboxServer(args[0], System.in, System.out);
-        try(
-                ServerSocket serverSocket = new ServerSocket(dmapPort);
-        ) {
-            while(true) {
-                serverSocket.accept();
-                (new Thread(server)).start();
-            }
-        } catch (IOException e) {
-            System.err.println("Could not listen on port " + dmapPort);
-            System.exit(-1);
-        }
+        server.run();
     }
 }
