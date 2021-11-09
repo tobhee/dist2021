@@ -15,7 +15,6 @@ public class TransferServer implements ITransferServer, Runnable {
 
     private final Config config;
     private TransferControllerThread controller;
-    private Thread controllerThread;
     private final Shell shell;
 
     /**
@@ -36,8 +35,7 @@ public class TransferServer implements ITransferServer, Runnable {
     @Override
     public void run() {
         controller = new TransferControllerThread(config);
-        controllerThread = new Thread(controller);
-        controllerThread.start();
+        new Thread(controller).start();
         // blocking main thread for shell
         shell.run();
     }

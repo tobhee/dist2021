@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dslab.monitoring.MonitoringServerProtocolTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-11-09T17:05:51" hostname="TOBISPC" time="22.112">
+  <properties/>
+  <testcase name="servers_returnsCorrectStatistics" classname="dslab.monitoring.MonitoringServerProtocolTest" time="11.073"/>
+  <testcase name="addresses_returnsCorrectStatistics" classname="dslab.monitoring.MonitoringServerProtocolTest" time="11.039"/>
+  <system-out><![CDATA[Received request-packet from client: 127.0.0.1:42 foo@example.com
+Received request-packet from client: 127.0.0.1:43 foo@example.com
+Received request-packet from client: 127.0.0.1:42 bar@example.com
+DatagramSocket shut down
+Received request-packet from client: 127.0.0.1:42 foo@example.com
+Received request-packet from client: 127.0.0.1:43 foo@example.com
+Received request-packet from client: 127.0.0.1:42 bar@example.com
+foo@example.com 2
+bar@example.com 1
+DatagramSocket shut down
+]]></system-out>
+  <system-err><![CDATA[Nov. 09, 2021 6:05:54 NACHM. dslab.monitoring.MonitoringServerProtocolTest servers_returnsCorrectStatistics
+INFO: Sending three monitoring packets to monitoring socket
+Nov. 09, 2021 6:06:05 NACHM. dslab.monitoring.MonitoringServerProtocolTest addresses_returnsCorrectStatistics
+INFO: Sending three monitoring packets to monitoring socket
+]]></system-err>
+</testsuite>

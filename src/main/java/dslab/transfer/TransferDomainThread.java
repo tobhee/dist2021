@@ -4,9 +4,7 @@ import dslab.protocols.Mail;
 import dslab.util.Config;
 
 import java.io.*;
-import java.net.Socket;
-import java.net.SocketException;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.util.Arrays;
 
 //client
@@ -38,7 +36,7 @@ public class TransferDomainThread implements Runnable {
                 System.out.println("recipient servername: " + recipientServerDomain);
                 if(domainsConfig.containsKey(recipientServerDomain)) {
                     System.out.println("trying to send error mail to sender");
-                    sendMail(recipientServerDomain);
+                    lookupDomain(recipientServerDomain);
                 } else {
                     // if domain lookup failed, notify sender via mail
                     sendErrorMail("mailserver " + recipientServerDomain + " not found");
@@ -47,6 +45,8 @@ public class TransferDomainThread implements Runnable {
                 if(socket != null) {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+
+                    notifyMonitoringServer();
 
                     writer.println("begin");
                     String response = reader.readLine();
@@ -89,7 +89,7 @@ public class TransferDomainThread implements Runnable {
         }
     }
 
-    private void sendMail(String domain) throws IOException {
+    private void lookupDomain(String domain) throws IOException {
         String[] ipAndPort = domainsConfig.getString(domain).split(":");
         socket = new Socket(ipAndPort[0], Integer.parseInt(ipAndPort[1]));
     }
@@ -103,9 +103,33 @@ public class TransferDomainThread implements Runnable {
             errorMail.setSubject("error");
             errorMail.setData(errorMessage);
             System.out.println(errorMail);
-            sendMail(errorMail.getTo().split("@")[1]);
+            lookupDomain(errorMail.getTo().split("@")[1]);
         } else {
             System.out.println("mail address of sender does not exist");
+        }
+    }
+
+    void notifyMonitoringServer() {
+        DatagramSocket socket;
+        byte[] buffer;
+        DatagramPacket packet;
+        String message = "127.0.0.1:" + config.getString("tcp.port") + " " + mail.getFrom();
+
+        try {
+            socket = new DatagramSocket();
+            buffer = message.getBytes();
+            packet = new DatagramPacket(buffer, buffer.length,
+                    InetAddress.getByName(config.getString("monitoring.host")),
+                    config.getInt("monitoring.port"));
+
+            socket.send(packet);
+
+        } catch (SocketException e) {
+            System.out.println("SocketException: " + e.getMessage());
+        } catch (UnknownHostException e) {
+            System.out.println("UnknownHostException: " + e.getMessage());
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
         }
     }
 }
