@@ -76,5 +76,4 @@ public final class ComponentFactory {
         Config config = new Config(componentId);
         return new TransferServer(componentId, config, in, out);
     }
-
 }

@@ -14,7 +14,6 @@ import dslab.ComponentFactory;
 import dslab.Constants;
 import dslab.Sockets;
 import dslab.TestBase;
-import dslab.monitoring.MonitoringServerTest;
 import dslab.util.Config;
 
 /**
@@ -22,7 +21,7 @@ import dslab.util.Config;
  */
 public class TransferServerTest extends TestBase {
 
-    private static final Log LOG = LogFactory.getLog(MonitoringServerTest.class);
+    private static final Log LOG = LogFactory.getLog(TransferServerTest.class);
 
     @Test
     public void runAndShutdownTransferServer_createsAndStopsTcpSocketCorrectly() throws Exception {
@@ -50,7 +49,7 @@ public class TransferServerTest extends TestBase {
             LOG.info("Waiting for thread to stop for component " + component);
             componentThread.join();
         } catch (InterruptedException e) {
-            err.addError(new AssertionError("Monitoring server was not terminated correctly"));
+            err.addError(new AssertionError("Transfer server was not terminated correctly"));
         }
 
         err.checkThat("Expected tcp socket on port " + port + " to be closed after shutdown",
