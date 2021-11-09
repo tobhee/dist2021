@@ -16,8 +16,8 @@ dslab/monitoring/IMonitoringServer.java
  dslab.monitoring.IMonitoringServer
 dslab/mailbox/MailboxDmapListenerThread.java
  dslab.mailbox.MailboxDmapListenerThread
-dslab/mailbox/MailboxDmtpListenerThread.java
- dslab.mailbox.MailboxDmtpListenerThread
+dslab/transfer/TransferControllerThread.java
+ dslab.transfer.TransferControllerThread
 dslab/transfer/TransferServer.java
  dslab.transfer.TransferServer
 dslab/util/Config.java
@@ -26,11 +26,11 @@ dslab/transfer/ITransferServer.java
  dslab.transfer.ITransferServer
 dslab/transfer/TransferDomainThread.java
  dslab.transfer.TransferDomainThread
+dslab/transfer/TransferListenerThread.java
+ dslab.transfer.TransferListenerThread
 dslab/mailbox/MailboxDmtpControllerThread.java
  dslab.mailbox.MailboxDmtpControllerThread
 dslab/mailbox/MailboxServer.java
  dslab.mailbox.MailboxServer
-dslab/transfer/TransferControllerThread.java
- dslab.transfer.TransferControllerThread
-dslab/transfer/TransferListenerThread.java
- dslab.transfer.TransferListenerThread
+dslab/mailbox/MailboxDmtpListenerThread.java
+ dslab.mailbox.MailboxDmtpListenerThread

@@ -1,6 +1,7 @@
 package dslab.mailbox;
 
 import dslab.protocols.Mail;
+import dslab.util.Config;
 
 import java.io.*;
 import java.net.Socket;
@@ -8,12 +9,13 @@ import java.net.SocketException;
 
 public class MailboxDmtpListenerThread implements Runnable {
     private Socket socket;
-
+    private Config config;
     private MailStorage mailStorage;
 
-    public MailboxDmtpListenerThread(Socket socket, MailStorage mailStorage) {
+    public MailboxDmtpListenerThread(Socket socket, MailStorage mailStorage, Config config) {
         this.socket = socket;
         this.mailStorage = mailStorage;
+        this.config = config;
     }
 
     @Override
@@ -55,8 +57,10 @@ public class MailboxDmtpListenerThread implements Runnable {
                             String[] recipientAddresses = parts[1].split(",");
                             StringBuilder unknownUser = new StringBuilder("");
                             for(String recipientAddress : recipientAddresses) {
-                                String user = recipientAddress.split("@")[0];
-                                if(!mailStorage.knowsUser(user)) unknownUser.append(user).append(" ");
+                                if(recipientAddress.contains(config.getString("domain"))) {
+                                    String user = recipientAddress.split("@")[0];
+                                    if(!mailStorage.knowsUser(user)) unknownUser.append(user).append(" ");
+                                }
                             }
                             if(unknownUser.toString().equals("")) {
                                 mail.setTo(noCommandReq);

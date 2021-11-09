@@ -30,7 +30,7 @@ public class MailboxDmtpControllerThread implements Runnable{
             while(true) {
                 dmtpSocket = serverSocketDmtp.accept();
                 if(shutdown) break;
-                dmtpListener = new MailboxDmtpListenerThread(dmtpSocket, mailStorage);
+                dmtpListener = new MailboxDmtpListenerThread(dmtpSocket, mailStorage, config);
                 new Thread(dmtpListener).start();
             }
         } catch (IOException e) {
