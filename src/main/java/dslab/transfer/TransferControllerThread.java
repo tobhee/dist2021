@@ -7,6 +7,8 @@ import java.io.UncheckedIOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class TransferControllerThread implements Runnable{
@@ -14,9 +16,11 @@ public class TransferControllerThread implements Runnable{
     private final Config config;
     private TransferListenerThread listener;
     private boolean shutdown;
+    private final ExecutorService workerThreads;
 
     public TransferControllerThread(Config config) {
         this.config = config;
+        this.workerThreads = Executors.newFixedThreadPool(100);
     }
 
     @Override
@@ -29,7 +33,7 @@ public class TransferControllerThread implements Runnable{
                 socket = serverSocket.accept();
                 if(shutdown) break;
                 listener = new TransferListenerThread(socket, config);
-                new Thread(listener).start();
+                workerThreads.execute(listener);
             }
         } catch (IOException e) {
             System.out.println("TransferServerSocket shut down");
@@ -41,6 +45,7 @@ public class TransferControllerThread implements Runnable{
     public void shutdown() {
         if(serverSocket != null && !serverSocket.isClosed()) {
             try {
+                workerThreads.shutdownNow();
                 serverSocket.close();
                 System.out.println("controller serversocket closed");
             } catch (IOException e) {

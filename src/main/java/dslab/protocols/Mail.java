@@ -51,9 +51,9 @@ public class Mail {
     @Override
     public String toString() {
         return
-                "from " + from + "\n" +
-                "to " + to + "\n" +
-                "subject " + subject + "\n" +
-                "data " + data + "\n";
+                "from " + from + "\n\r" +
+                "to " + to + "\n\r" +
+                "subject " + subject + "\n\r" +
+                "data " + data + "\n\r";
     }
 }

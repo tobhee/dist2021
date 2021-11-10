@@ -4,8 +4,8 @@ dslab/transfer/ITransferServer.java
  dslab.transfer.ITransferServer
 dslab/ComponentFactory.java
  dslab.ComponentFactory
-dslab/transfer/TransferServer.java
- dslab.transfer.TransferServer
+dslab/transfer/TransferControllerThread.java
+ dslab.transfer.TransferControllerThread
 dslab/mailbox/MailboxServer.java
  dslab.mailbox.MailboxServer
 dslab/util/Config.java
@@ -18,8 +18,8 @@ dslab/monitoring/IMonitoringServer.java
  dslab.monitoring.IMonitoringServer
 dslab/monitoring/MonitoringServer.java
  dslab.monitoring.MonitoringServer
-dslab/transfer/TransferControllerThread.java
- dslab.transfer.TransferControllerThread
+dslab/transfer/TransferServer.java
+ dslab.transfer.TransferServer
 dslab/mailbox/MailboxDmapListenerThread.java
  dslab.mailbox.MailboxDmapListenerThread
 dslab/mailbox/MailboxDmapControllerThread.java

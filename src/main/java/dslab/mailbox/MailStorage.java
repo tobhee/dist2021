@@ -45,12 +45,12 @@ public class MailStorage {
     }
 
     public String listMailsOfUser(String user) {
-        StringBuilder str = new StringBuilder();
+        String str = "";
         // iterate through mailbox of user
         for(Map.Entry<Integer, Mail> mail : mails.get(user).entrySet()) {
-            str.append(mail.getKey().toString()).append(" ").append(mail.getValue().getFrom()).append(" ").append(mail.getValue().getSubject()).append("\n");
+            str = str.concat(mail.getKey().toString() + " " + mail.getValue().getFrom() + " " + mail.getValue().getSubject() + "\n\r");
         }
-        str = new StringBuilder(str.toString().equals("") ? new StringBuilder("No mails in your inbox") : str.toString());
-        return str.toString();
+        str = str.equals("") ? "No mails in your inbox" : str;
+        return str;
     }
 }

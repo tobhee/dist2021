@@ -60,6 +60,7 @@ public class TransferDomainThread implements Runnable {
                     response += reader.readLine();
                     writer.println("send");
                     response += reader.readLine();
+                    writer.println("quit");
                     System.out.println("mailbox server response: " + response);
                     // react to server response message
                     if(response.contains("error")) {
